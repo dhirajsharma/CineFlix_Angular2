@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class="row=">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+                <input type="text=" [(ngModel)]='listFilter' />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <h3>Filtered by: {{listFilter}}</h3>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped" *ngIf='movies && movies.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary" (click)='toggleImage()'>{{showImage?'Hide':'Show'}} Images</button>
+                        </th>
+                        <th>Movies</th>
+                        <th>Year</th>
+                        <th>Rated</th>
+                        <th>IMDB Votes</th>
+                        <th>IMDB Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="#movie of movies | movieFilter:listFilter">
+                        <td>
+                            <img *ngIf=" showImage " [src]='movie.Poster' [title]='movie.Title' [style.width.px]='imageWidth' [style.margin.px]='imageNumber'>
+                        </td>
+                        <td>
+                            <a [routerLink]="['MovieDetail', {id: movie.imdbID}]">
+                                {{movie.Title}}
+                            </a>
+                        </td>
+                        <td>{{movie.Year}}</td>
+                        <td>{{movie.Rated}}</td>
+                        <td>{{movie.imdbVotes}}</td>
+                        <td>
+                            <ai-star [rating]='movie.imdbRating' (ratingClicked)='onRatingClicked($event)'></ai-star>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

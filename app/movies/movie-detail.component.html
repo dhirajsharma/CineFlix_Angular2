@@ -1,0 +1,84 @@
+<div class="panel panel-primary" *ngIf="movie">
+    <div class="panel-heading">
+        {{pageTitle + ': ' +movie.Title}}
+        <a class="btn btn-default pull-right" (click)='onBack()'>
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class="col-sm-3 img"> <img [src]='movie.Poster' [title]='movie.Title' [style.width.px]='imageWidth' [style.margin.px]='imageNumber'></div>
+            <div class='col-sm-8'>
+                <div class='row'>
+                    <div class='col-md-2'>Title:</div>
+                    <div class='col-md-10'>{{movie.Title}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Year:</div>
+                    <div class='col-md-10'>{{movie.Year}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Plot:</div>
+                    <div class='col-md-10'>{{movie.Plot}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Rates:</div>
+                    <div class='col-md-10'>{{movie.Rated}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Released:</div>
+                    <div class='col-md-10'>{{movie.Released}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Runtime:</div>
+                    <div class='col-md-10'>{{movie.Runtime}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Genre:</div>
+                    <div class='col-md-10'>{{movie.Genre}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Director:</div>
+                    <div class='col-md-10'>{{movie.Director}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Writer:</div>
+                    <div class='col-md-10'>{{movie.Writer}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Language:</div>
+                    <div class='col-md-10'>{{movie.Language}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Country:</div>
+                    <div class='col-md-10'>{{movie.Country}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Awards:</div>
+                    <div class='col-md-10'>{{movie.Awards}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>Metascore:</div>
+                    <div class='col-md-10'>{{movie.Metascore}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>IMDB Votes:</div>
+                    <div class='col-md-10'>{{movie.imdbVotes}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>IMDB ID:</div>
+                    <div class='col-md-10'>{{movie.imdbID}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-2'>IMDB Rating:</div>
+                    <div class='col-md-1'>
+                        {{movie.imdbRating}}/10
+                    </div>
+                    <div class='col-md-9'>
+                        <ai-star [rating]='movie.imdbRating'></ai-star>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
